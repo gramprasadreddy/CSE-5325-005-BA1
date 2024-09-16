@@ -1,3 +1,5 @@
+import math
+
 def add(a, b):
     return a + b
 
@@ -13,28 +15,38 @@ def divide(a, b):
     else:
         return "Error! Division by zero is not allowed."
 
-def calculator():
-    # Prompt user to enter two numbers
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
-
-    # Prompt user to enter an operator
-    operator = input("Enter an operator (+, -, *, /): ")
-
-    # Call the appropriate function based on the operator
-    if operator == '+':
-        result = add(num1, num2)
-    elif operator == '-':
-        result = subtract(num1, num2)
-    elif operator == '*':
-        result = multiply(num1, num2)
-    elif operator == '/':
-        result = divide(num1, num2)
+def square_root(a):
+    if a >= 0:
+        return math.sqrt(a)
     else:
-        return "Invalid operator."
+        return "Error! Cannot take the square root of a negative number."
 
-    # Display the result
+def calculator():
+    operation_type = input("Enter '1' for basic operations (+, -, *, /) or '2' for square root: ")
+
+    if operation_type == '1':
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        operator = input("Enter an operator (+, -, *, /): ")
+
+        if operator == '+':
+            result = add(num1, num2)
+        elif operator == '-':
+            result = subtract(num1, num2)
+        elif operator == '*':
+            result = multiply(num1, num2)
+        elif operator == '/':
+            result = divide(num1, num2)
+        else:
+            return "Invalid operator."
+    
+    elif operation_type == '2':
+        num = float(input("Enter a number to find the square root: "))
+        result = square_root(num)
+    
+    else:
+        return "Invalid operation type."
+
     return f"The result is: {result}"
 
-# Run the calculator
 print(calculator())
