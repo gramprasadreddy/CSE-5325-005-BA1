@@ -4,14 +4,14 @@ def add(a, b):
 def subtract(a, b):
     return a - b
 
-# def multiply(a, b):
-#     return a * b
-#
-# def divide(a, b):
-#     if b != 0:
-#         return a / b
-#     else:
-#         return "Error! Division by zero is not allowed."
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b != 0:
+        return a / b
+    else:
+        return "Error! Division by zero is not allowed."
 
 def calculator():
     # Prompt user to enter two numbers
@@ -26,10 +26,10 @@ def calculator():
         result = add(num1, num2)
     elif operator == '-':
         result = subtract(num1, num2)
-    # elif operator == '*':
-    #     result = multiply(num1, num2)
-    # elif operator == '/':
-    #     result = divide(num1, num2)
+    elif operator == '*':
+        result = multiply(num1, num2)
+    elif operator == '/':
+        result = divide(num1, num2)
     else:
         return "Invalid operator."
 
